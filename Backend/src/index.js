@@ -15,13 +15,14 @@ app.use(express.json({ limit: "10mb" }));
 app.use(express.urlencoded({ limit: "10mb", extended: true }));
 app.use(cookieParser());
 
-app.use(cors(
-    {origin: "https://chat-bot-real-time-8cxgs1xa9-suleman-s-projects1.vercel.app",
-    credentials: true,}
+app.use(
+    cors({
+        origin: process.env.CLIENT_ORIGIN ? process.env.CLIENT_ORIGIN.split(",") : ["http://localhost:5173"],
+        credentials: true,
+    })
+);
 
-));
-
-const PORT = process.env.PORT || 5001;
+const PORT = process.env.PORT || 5002;
 
 app.use("/api/auth", authRoutes);
 app.use("/api/messages", messageRoutes);

@@ -7,7 +7,10 @@ const server = http.createServer(app);
 
 const io = new Server(server, {
   cors: {
-    origin: ["https://chat-bot-real-time-8cxgs1xa9-suleman-s-projects1.vercel.app"],
+    origin: process.env.CLIENT_ORIGIN
+  ? process.env.CLIENT_ORIGIN.split(",")
+  : ["http://localhost:5173"],
+    credentials: true,
   },
 });
 

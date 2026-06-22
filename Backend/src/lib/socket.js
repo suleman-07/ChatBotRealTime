@@ -9,7 +9,7 @@ const io = new Server(server, {
   cors: {
     origin: process.env.CLIENT_ORIGIN
   ? process.env.CLIENT_ORIGIN.split(",")
-  : ["http://localhost:5173"],
+  : ["https://chat-bot-real-time.vercel.app", "http://localhost:5173"],
     credentials: true,
   },
 });

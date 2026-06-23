@@ -3,7 +3,7 @@
 import { create } from "zustand";
 import { io } from "socket.io-client";
 
-const socket = io("https://chatbotrealtime-production.up.railway.app/", {
+const socket = io("https://chatbotrealtime-production.up.railway.app", {
   query: { userId: JSON.parse(localStorage.getItem("authUser"))?._id },
 });
 
